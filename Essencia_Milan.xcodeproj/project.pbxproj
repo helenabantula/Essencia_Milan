@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F4BF99751FB14650DBC88F4 /* tod.c in Sources */ = {isa = PBXBuildFile; fileRef = 17619E69D85D56A3402B87A4 /* tod.c */; };
+		6E77B31CDD47A287EA8AACC0 /* transmit.c in Sources */ = {isa = PBXBuildFile; fileRef = C14E9B125BBA34914AAD6EF0 /* transmit.c */; };
+		700CC45A3C71F3F11166326E /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = F3319E18F0CDA0FE3D2C1873 /* network.c */; };
+		83A970631C8F5ABB00CEC6D8 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83A970611C8F5ABB00CEC6D8 /* User.cpp */; };
+		83A970681C8F67D600CEC6D8 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83A970641C8F67D600CEC6D8 /* Light.cpp */; };
+		83A970691C8F67D600CEC6D8 /* Par.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83A970661C8F67D600CEC6D8 /* Par.cpp */; };
+		A13E00BF256804B76073E034 /* receive.c in Sources */ = {isa = PBXBuildFile; fileRef = FA642C646FA5AE83964AC4B1 /* receive.c */; };
+		AA56F4D7CB481AE689DCA444 /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2260EDCBFADBFF1296208A1D /* misc.c */; };
+		AB8D48ED2479C6699FBB9984 /* ofxArtnet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2646A836240BA83B8B9AC823 /* ofxArtnet.cpp */; };
+		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
+		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		F80DDAD50DEA004A392945D1 /* artnet.c in Sources */ = {isa = PBXBuildFile; fileRef = 865D60C202384FF9EBCF4A27 /* artnet.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0CF74A4F3B399A8B8FB80419 /* ofxArtnet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxArtnet.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src/ofxArtnet.h; sourceTree = SOURCE_ROOT; };
+		17619E69D85D56A3402B87A4 /* tod.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = tod.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/tod.c; sourceTree = SOURCE_ROOT; };
+		2260EDCBFADBFF1296208A1D /* misc.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = misc.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/misc.c; sourceTree = SOURCE_ROOT; };
+		2646A836240BA83B8B9AC823 /* ofxArtnet.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxArtnet.cpp; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src/ofxArtnet.cpp; sourceTree = SOURCE_ROOT; };
+		2A88FD0EBF813F694306069D /* private.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = private.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/private.h; sourceTree = SOURCE_ROOT; };
+		527B031DDD91131EE2A6DE0D /* misc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = misc.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/misc.h; sourceTree = SOURCE_ROOT; };
+		7760FCFCB601792EB82C22E4 /* packets.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = packets.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/packets.h; sourceTree = SOURCE_ROOT; };
+		8176672AD53D0EF466F802ED /* tod.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tod.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/tod.h; sourceTree = SOURCE_ROOT; };
+		83A970611C8F5ABB00CEC6D8 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
+		83A970621C8F5ABB00CEC6D8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		83A970641C8F67D600CEC6D8 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		83A970651C8F67D600CEC6D8 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		83A970661C8F67D600CEC6D8 /* Par.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Par.cpp; sourceTree = "<group>"; };
+		83A970671C8F67D600CEC6D8 /* Par.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Par.h; sourceTree = "<group>"; };
+		865D60C202384FF9EBCF4A27 /* artnet.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = artnet.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/artnet.c; sourceTree = SOURCE_ROOT; };
+		C14E9B125BBA34914AAD6EF0 /* transmit.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = transmit.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/transmit.c; sourceTree = SOURCE_ROOT; };
+		CCC230B9865F84E5615D539B /* common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = common.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/common.h; sourceTree = SOURCE_ROOT; };
+		DEB0E6EF78AC88E2877F9668 /* unistd_d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = unistd_d.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/unistd_d.h; sourceTree = SOURCE_ROOT; };
+		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E4B69B5B0A3A1756003C02F2 /* Essencia_MilanDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essencia_MilanDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		F3319E18F0CDA0FE3D2C1873 /* network.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = network.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/network.c; sourceTree = SOURCE_ROOT; };
+		F84714B2C2625DFBCC2F5B19 /* artnet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = artnet.h; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include/artnet.h; sourceTree = SOURCE_ROOT; };
+		FA642C646FA5AE83964AC4B1 /* receive.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = receive.c; path = ../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src/receive.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4B69B590A3A1756003C02F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		337E88793864422817832F25 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				865D60C202384FF9EBCF4A27 /* artnet.c */,
+				2260EDCBFADBFF1296208A1D /* misc.c */,
+				F3319E18F0CDA0FE3D2C1873 /* network.c */,
+				FA642C646FA5AE83964AC4B1 /* receive.c */,
+				17619E69D85D56A3402B87A4 /* tod.c */,
+				C14E9B125BBA34914AAD6EF0 /* transmit.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		3C16811D02C09EA0CEE5C961 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2646A836240BA83B8B9AC823 /* ofxArtnet.cpp */,
+				0CF74A4F3B399A8B8FB80419 /* ofxArtnet.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6948EE371B920CB800B5AC1A /* local_addons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = local_addons;
+			sourceTree = "<group>";
+		};
+		6E054724599401ED9576BD1D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F84714B2C2625DFBCC2F5B19 /* artnet.h */,
+				CCC230B9865F84E5615D539B /* common.h */,
+				527B031DDD91131EE2A6DE0D /* misc.h */,
+				7760FCFCB601792EB82C22E4 /* packets.h */,
+				2A88FD0EBF813F694306069D /* private.h */,
+				8176672AD53D0EF466F802ED /* tod.h */,
+				DEB0E6EF78AC88E2877F9668 /* unistd_d.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		BB4B014C10F69532006C3DED /* addons */ = {
+			isa = PBXGroup;
+			children = (
+				F8631D0D7661947827568C5E /* ofxArtnet */,
+			);
+			name = addons;
+			sourceTree = "<group>";
+		};
+		C48B7D7772BCCDE79EA60A25 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				EABFEC1A1E95F764D5340B2B /* artnet */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		E4328144138ABC890047C5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4328148138ABC890047C5CB /* openFrameworksDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4B69B4A0A3A1720003C02F2 = {
+			isa = PBXGroup;
+			children = (
+				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
+				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E4EEC9E9138DF44700A80321 /* openFrameworks */,
+				BB4B014C10F69532006C3DED /* addons */,
+				6948EE371B920CB800B5AC1A /* local_addons */,
+				E4B69B5B0A3A1756003C02F2 /* Essencia_MilanDebug.app */,
+			);
+			sourceTree = "<group>";
+		};
+		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				83A970641C8F67D600CEC6D8 /* Light.cpp */,
+				83A970651C8F67D600CEC6D8 /* Light.h */,
+				83A970661C8F67D600CEC6D8 /* Par.cpp */,
+				83A970671C8F67D600CEC6D8 /* Par.h */,
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				83A970611C8F5ABB00CEC6D8 /* User.cpp */,
+				83A970621C8F5ABB00CEC6D8 /* User.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4EEC9E9138DF44700A80321 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */,
+				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
+			);
+			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		EABFEC1A1E95F764D5340B2B /* artnet */ = {
+			isa = PBXGroup;
+			children = (
+				6E054724599401ED9576BD1D /* include */,
+				337E88793864422817832F25 /* src */,
+			);
+			name = artnet;
+			sourceTree = "<group>";
+		};
+		F8631D0D7661947827568C5E /* ofxArtnet */ = {
+			isa = PBXGroup;
+			children = (
+				3C16811D02C09EA0CEE5C961 /* src */,
+				C48B7D7772BCCDE79EA60A25 /* libs */,
+			);
+			name = ofxArtnet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4B69B5A0A3A1756003C02F2 /* Essencia_Milan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "Essencia_Milan" */;
+			buildPhases = (
+				E4B69B580A3A1756003C02F2 /* Sources */,
+				E4B69B590A3A1756003C02F2 /* Frameworks */,
+				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
+				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
+			);
+			name = Essencia_Milan;
+			productName = myOFApp;
+			productReference = E4B69B5B0A3A1756003C02F2 /* Essencia_MilanDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Essencia_Milan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = E4B69B4A0A3A1720003C02F2;
+			productRefGroup = E4B69B4A0A3A1720003C02F2;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4328144138ABC890047C5CB /* Products */;
+					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E4B69B5A0A3A1756003C02F2 /* Essencia_Milan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = openFrameworksDebug.a;
+			remoteRef = E4328147138ABC890047C5CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -aved ../../../../../OF_OSX/of_v0.9.0_osx_release/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved ../../../../../OF_OSX/of_v0.9.0_osx_release/libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4B69B580A3A1756003C02F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83A970681C8F67D600CEC6D8 /* Light.cpp in Sources */,
+				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				83A970691C8F67D600CEC6D8 /* Par.cpp in Sources */,
+				AB8D48ED2479C6699FBB9984 /* ofxArtnet.cpp in Sources */,
+				F80DDAD50DEA004A392945D1 /* artnet.c in Sources */,
+				83A970631C8F5ABB00CEC6D8 /* User.cpp in Sources */,
+				AA56F4D7CB481AE689DCA444 /* misc.c in Sources */,
+				700CC45A3C71F3F11166326E /* network.c in Sources */,
+				A13E00BF256804B76073E034 /* receive.c in Sources */,
+				0F4BF99751FB14650DBC88F4 /* tod.c in Sources */,
+				6E77B31CDD47A287EA8AACC0 /* transmit.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4EEB9AC138B136A00A80321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4B69B4E0A3A1720003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E4B69B4F0A3A1720003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E4B69B600A3A1757003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../OF_OSX/of_v0.9.0_osx_release/libs/glut/lib/osx\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src,
+				);
+				ICON = "$(ICON_NAME_DEBUG)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4B69B610A3A1757003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../OF_OSX/of_v0.9.0_osx_release/libs/glut/lib/osx\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/include,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/libs/artnet/src,
+					../../../../../OF_OSX/of_v0.9.0_osx_release/addons/ofxArtnet/src,
+				);
+				ICON = "$(ICON_NAME_RELEASE)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Essencia_Milan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B4E0A3A1720003C02F2 /* Debug */,
+				E4B69B4F0A3A1720003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "Essencia_Milan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B600A3A1757003C02F2 /* Debug */,
+				E4B69B610A3A1757003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4B69B4C0A3A1720003C02F2 /* Project object */;
+}
