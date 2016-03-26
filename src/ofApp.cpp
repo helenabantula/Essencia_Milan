@@ -15,15 +15,15 @@ void ofApp::setup(){
 #if TARGET_RASPBERRY_PI
     serial.setup(0, baud);
 #else
-    serial.setup("/dev/cu.usbmodem1411",baud);
+    serial.setup("/dev/cu.usbmodem1421",baud);
 #endif
 
     ////////////////////////// USERS ////////////////////////
     
-    User temUser("GreuEssencia.wav",0);
+    User temUser("GreuEssencia.wav","PercuEssencia.wav",0);
     users.push_back(temUser);
     
-    User temUser1("PercuEssencia.wav",1);
+    User temUser1("PercuEssencia.wav","PercuEssencia.wav",1);
     users.push_back(temUser1);
     
     ////////////////////////// LIGHT ////////////////////////

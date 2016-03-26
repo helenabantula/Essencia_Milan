@@ -9,9 +9,10 @@
 #include "User.h"
 
 
-User:: User(string soundfile, int position){
+User:: User(string soundfile1, string soundfile2, int position){
     
-    sound.load(soundfile,true);
+    soundUp.load(soundfile1,true);
+    soundDown.load(soundfile2,true);
     
     sensorID=position;
     
@@ -46,18 +47,17 @@ void User:: update(){
 }
 
 void User::initial(){
-    //  baixar la musica?
-    // fer un fadeOut dels llums
+
     
 }
 
 
 void User::warming(){
-    //  calculant la frequencia
     
     // si han passat dos segons, canvies estat
-    if ((ofGetElapsedTimeMillis()-timeSinceUser)>warmingTime){
+    if (((ofGetElapsedTimeMillis() - timeSinceUser) > warmingTime) && (ofGetElapsedTimeMillis() - timeSinceH < warmingTime)){
         userState = STATE_PLAY;
+        timeSincePlay = ofGetElapsedTimeMillis();
     }
 
 }
@@ -65,16 +65,34 @@ void User::warming(){
 
 void User::play(){
     
-    if ((ofGetElapsedTimeMillis()-timeSinceUser)>playTime)
+    
+    if ((ofGetElapsedTimeMillis() - timeSincePlay) >= periodMean) {
+        
+        // play light and sound
+        soundUp.play();
+        Light::getInstance().fadeUserPars(1, 'I', 2, 200, sensorID);       //fadeIn
+        
+        // start again
+        timeSincePlay = ofGetElapsedTimeMillis();
+        playPhase = true;
+    }
+    
+    if (((ofGetElapsedTimeMillis() - timeSincePlay) >= phaseMean) && playPhase){
+        soundDown.play();
+        Light::getInstance().fadeUserPars(1, 'O', 1, 200, sensorID);       //fadeOut
+        playPhase = false;
+    }
+    
+    if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime))
         userState = STATE_STOP;
+    
 }
 
 
 void User::stop(){
-    if ((ofGetElapsedTimeMillis()-timeSinceLeft)>stopTime)
+    if ((ofGetElapsedTimeMillis()-timeSinceLeft) > stopTime)
         userState = STATE_INITIAL;
-    
-    
+        periodMean = periodMeanInit;
 }
 
 
@@ -86,29 +104,64 @@ void User::wait(){
 void User::setHeartBeat(char value){
     //heartBeat = value;
     
-    if(userState == STATE_INITIAL){
+    if(userState == STATE_INITIAL){                                 // rebis el que rebis
         timeSinceUser = ofGetElapsedTimeMillis();
-        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
-        userState = STATE_WARMING;
+        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut //AQUI SEGUR?
+        
+        if ((ofGetElapsedTimeMillis() - timeSinceH) < warmingTime){
+            userState = STATE_WARMING;
+        }
     }
     
     
     if (userState == STATE_PLAY && value == 'H'){
         cout<<"HIGH"<<endl;
-        sound.play();
-        Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
+        //sound.play();
+        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
     }
     
     else if (userState == STATE_PLAY && value == 'L'){
         cout<<"LOW"<<endl;
-        sound.play();
-        Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
+        //sound.play();
+        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
     
     }
     
     if (userState == STATE_STOP){
         Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
         timeSinceLeft = ofGetElapsedTimeMillis();
+    }
+    
+        
+    
+    //frequency computation (always?)
+    if (value == 'H'){
+        
+        // period
+        tempPeriod = ofGetElapsedTimeMillis() - timeSinceH;
+        
+        if (tempPeriod > minPeriod && tempPeriod < maxPeriod){
+            period.push_back(tempPeriod);
+        }
+        else {
+            period.push_back(periodMeanInit);
+        
+        }
+        
+        // period mean
+        periodMean = 0;
+        for( int i = 0; i < period.size(); i++) {
+            periodMean += period[i];
+        }
+        periodMean /= period.size();
+        
+        
+        
+        // tornem a començar
+        timeSinceH = ofGetElapsedTimeMillis();
+    
+        // phase computation (always?)
+        phaseMean = 0.25*periodMean;
     }
 }
 

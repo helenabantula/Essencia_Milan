@@ -32,15 +32,32 @@ public:
     int sensorID;
     //int pars[2];
     bool active;
-    ofSoundPlayer sound;
+    ofSoundPlayer soundUp;
+    ofSoundPlayer soundDown;
     char heartBeat;
     
     //TIME MANAGEMENT
     int timeSinceUser;
     int timeSinceLeft;
+    int timeSincePlay;
     int playTime = 40000;
     int warmingTime = 2000;
     int stopTime = 3000;
+    int maxErrorTime = 4000;
+    
+    //PERIOD COMPUTATION
+    int timeSinceH;
+    //int timeSinceL;
+    vector<int> period;
+    int tempPeriod;
+    int periodMean;
+    int periodMeanInit = 857;   // 70  bpm
+    int maxPeriod = 1000;       // 60  bpm
+    int minPeriod = 300;        // 200 bpm
+    
+    //PHASE COMPUTATION
+    int phaseMean;
+    bool playPhase = true;
     
     
     //CONTROL STATE
@@ -50,7 +67,7 @@ public:
     
     
     //INHERENT
-    User(string soundfile, int position);
+    User(string soundfile1, string soundfile2, int position);
     
     
     //STATES
