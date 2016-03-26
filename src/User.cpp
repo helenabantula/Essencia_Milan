@@ -54,7 +54,7 @@ void User::initial(){
 
 void User::warming(){
     
-    // si han passat dos segons, canvies estat
+    // si han passat dos segons i dins d'aquests reps una H, canvia estat
     if (((ofGetElapsedTimeMillis() - timeSinceUser) > warmingTime) && (ofGetElapsedTimeMillis() - timeSinceH < warmingTime)){
         userState = STATE_PLAY;
         timeSincePlay = ofGetElapsedTimeMillis();
@@ -83,16 +83,21 @@ void User::play(){
         playPhase = false;
     }
     
-    if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime))
+    if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime)) {
+        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
+        timeSinceLeft = ofGetElapsedTimeMillis();
         userState = STATE_STOP;
+        cout<<"HE PARAT!!!!"<<endl;
+    }
     
 }
 
 
 void User::stop(){
     if ((ofGetElapsedTimeMillis()-timeSinceLeft) > stopTime)
-        userState = STATE_INITIAL;
         periodMean = periodMeanInit;
+        period.clear();
+        userState = STATE_INITIAL;
 }
 
 
@@ -102,35 +107,35 @@ void User::wait(){
 
 
 void User::setHeartBeat(char value){
-    //heartBeat = value;
+
     
-    if(userState == STATE_INITIAL){                                 // rebis el que rebis
+    if(((userState == STATE_INITIAL) && (value == 'H') && (ofGetElapsedTimeMillis() - timeSinceH) < maxPeriod)){    // asseguro H no falses
         timeSinceUser = ofGetElapsedTimeMillis();
-        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut //AQUI SEGUR?
-        
-        if ((ofGetElapsedTimeMillis() - timeSinceH) < warmingTime){
-            userState = STATE_WARMING;
-        }
+        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID);
+        userState = STATE_WARMING;
+        cout<<"HE ENTRAT"<<endl;
+
     }
     
     
-    if (userState == STATE_PLAY && value == 'H'){
-        cout<<"HIGH"<<endl;
-        //sound.play();
-        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
-    }
+//    if (userState == STATE_PLAY && value == 'H'){
+//        cout<<"HIGH"<<endl;
+//        sound.play();
+//        Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
+//    }
     
-    else if (userState == STATE_PLAY && value == 'L'){
-        cout<<"LOW"<<endl;
-        //sound.play();
-        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
+//    else if (userState == STATE_PLAY && value == 'L'){
+//        cout<<"LOW"<<endl;
+//        //sound.play();
+//        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
+//    
+//    }
     
-    }
-    
-    if (userState == STATE_STOP){
-        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
-        timeSinceLeft = ofGetElapsedTimeMillis();
-    }
+//    if (userState == STATE_STOP){
+//        //Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
+//        //timeSinceLeft = ofGetElapsedTimeMillis();
+//        cout<<"HE PARAT!!!!"<<endl;
+//    }
     
         
     

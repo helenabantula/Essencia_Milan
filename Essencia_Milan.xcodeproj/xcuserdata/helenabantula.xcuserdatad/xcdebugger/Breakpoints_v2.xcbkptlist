@@ -56,12 +56,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/User.cpp"
-            timestampString = "480209124.920955"
+            timestampString = "480706038.894188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "User::setHeartBeat(char value)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "User::stop()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -93,7 +93,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "User:: User(string soundfile, int position)"
+            landmarkName = "User:: User(string soundfile1, string soundfile2, int position)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,13 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/User.cpp"
-            timestampString = "480209124.920955"
+            timestampString = "480706038.894188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "User::setHeartBeat(char value)"
-            landmarkType = "5">
+            startingLineNumber = "102"
+            endingLineNumber = "102">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,6 +156,54 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "User:: update()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/User.cpp"
+            timestampString = "480706038.894188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "User::setHeartBeat(char value)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/User.cpp"
+            timestampString = "480706038.894188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "User::setHeartBeat(char value)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/User.cpp"
+            timestampString = "480706038.894188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "User::setHeartBeat(char value)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

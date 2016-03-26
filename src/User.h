@@ -46,7 +46,7 @@ public:
     int maxErrorTime = 4000;
     
     //PERIOD COMPUTATION
-    int timeSinceH;
+    int timeSinceH = 0;
     //int timeSinceL;
     vector<int> period;
     int tempPeriod;
