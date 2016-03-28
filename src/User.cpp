@@ -47,6 +47,7 @@ void User:: update(){
 }
 
 void User::initial(){
+    //Light::getInstance().randomPlay(true);
 
     
 }
@@ -94,10 +95,11 @@ void User::play(){
 
 
 void User::stop(){
-    if ((ofGetElapsedTimeMillis()-timeSinceLeft) > stopTime)
+    if ((ofGetElapsedTimeMillis()-timeSinceLeft) > stopTime) {
         periodMean = periodMeanInit;
         period.clear();
         userState = STATE_INITIAL;
+    }
 }
 
 

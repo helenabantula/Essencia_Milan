@@ -45,13 +45,6 @@ void ofApp::update(){
     unsigned  char lectura[3];
     serial.readBytes(lectura, 2);  //int readBytes(unsigned char * buffer, int length);
     
-    
-//    if ((lectura[0])){          // no llegeix espais
-//        int sensor=(int)lectura[0]-48; //ASCII comença per 48
-//        users[sensor].setHeartBeat(lectura[1]);
-//        cout<<lectura<<endl;
-//    }
-    
     int sensor=(int)lectura[0]-48; //ASCII comença per 48
     switch (sensor) {
         case 0:
@@ -73,9 +66,20 @@ void ofApp::update(){
     }
     
     
-    for (int i=0; i<users.size(); i++){
+    int counter_state_initial = 0;
+    for (int i = 0; i < users.size(); i++){
         users[i].update();
+        if (users[i].userState == STATE_INITIAL) {
+            counter_state_initial ++;
+        }
     }
+    
+    if (counter_state_initial == users.size())
+        Light::getInstance().randomPlay(true);
+    else
+        Light::getInstance().randomPlay(false);
+        
+    
     
     Light::getInstance().getInfo();
 }
