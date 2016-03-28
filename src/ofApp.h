@@ -12,6 +12,7 @@ public:
     
         ofSerial serial;
         Light llum;
+        int numUsers = 8;
         vector<User> users;
         int maxPars; //maxim nombre de pars per usuari, hauria de ser accessible per tothom!
         ofSoundPlayer background;

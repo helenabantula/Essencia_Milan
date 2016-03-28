@@ -27,7 +27,7 @@ void ofApp::setup(){
     users.push_back(temUser1);
     
     ////////////////////////// LIGHT ////////////////////////
-    Light::getInstance().initialize(4); //maxUsers
+    Light::getInstance().initialize(numUsers); //maxUsers
     
     
     ////////////////////////// SOUND ////////////////////////
@@ -76,10 +76,32 @@ void ofApp::update(){
     for (int i=0; i<users.size(); i++){
         users[i].update();
     }
+    
+    Light::getInstance().getInfo();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    
+    ofSetColor(0);
+    
+
+    ofDrawBitmapString((int)Light::getInstance().packDMX[0], 50, 50);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[1], 50, 70);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[2], 50, 90);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[3], 200, 50);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[4],200, 70);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[5], 200, 90);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[6], 350, 50);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[7], 350, 70);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[8], 350, 90);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[9], 500, 50);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[10], 500, 70);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[11], 500, 90);
 
 }
 
