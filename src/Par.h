@@ -44,6 +44,7 @@ public:
     void update();
     void randomMove();
     //void initialize(int time);
+    ofColor getColor(){return color;};
 
     
 };
