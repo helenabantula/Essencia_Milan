@@ -20,11 +20,13 @@ void ofApp::setup(){
 
     ////////////////////////// USERS ////////////////////////
     
-    User temUser("GreuEssencia.wav","PercuEssencia.wav",0);
-    users.push_back(temUser);
+    for (int i = 0; i < numUsers; i++){
+        User temUser("GreuEssencia.wav","PercuEssencia.wav",i);
+        users.push_back(temUser);
+    }
     
-    User temUser1("PercuEssencia.wav","PercuEssencia.wav",1);
-    users.push_back(temUser1);
+    //User temUser1("PercuEssencia.wav","PercuEssencia.wav",1);
+    //users.push_back(temUser1);
     
     ////////////////////////// LIGHT ////////////////////////
     Light::getInstance().initialize(numUsers); //maxUsers
@@ -67,14 +69,14 @@ void ofApp::update(){
     
     
     int counter_state_initial = 0;
-    for (int i = 0; i < users.size(); i++){
+    for (int i = 0; i < numUsers; i++){
         users[i].update();
         if (users[i].userState == STATE_INITIAL) {
             counter_state_initial ++;
         }
     }
     
-    if (counter_state_initial == users.size())
+    if (counter_state_initial == numUsers)
         Light::getInstance().randomPlay(true);
     else
         Light::getInstance().randomPlay(false);
@@ -106,6 +108,43 @@ void ofApp::draw(){
     ofDrawBitmapString((int)Light::getInstance().packDMX[9], 500, 50);
     ofDrawBitmapString((int)Light::getInstance().packDMX[10], 500, 70);
     ofDrawBitmapString((int)Light::getInstance().packDMX[11], 500, 90);
+    
+    
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[12], 50, 150);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[13], 50, 170);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[14], 50, 190);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[15], 200, 150);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[16],200, 170);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[17], 200, 190);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[18], 350, 150);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[19], 350, 170);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[20], 350, 190);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[21], 500, 150);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[22], 500, 170);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[23], 500, 190);
+    
+    
+    
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[24], 50, 250);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[25], 50, 270);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[26], 50, 290);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[27], 200, 250);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[28],200, 270);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[29], 200, 290);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[30], 350, 250);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[31], 350, 270);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[32], 350, 290);
+    
+    ofDrawBitmapString((int)Light::getInstance().packDMX[33], 500, 250);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[34], 500, 270);
+    ofDrawBitmapString((int)Light::getInstance().packDMX[35], 500, 290);
 
 }
 

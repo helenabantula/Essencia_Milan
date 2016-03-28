@@ -88,6 +88,6 @@ void Par::randomMove(){
  
     topFade = ofNoise(ofGetElapsedTimef()/1.5+(300*id));             //300*id per a crear offset entre els pars
     topFade = ofMap(topFade, 0.2, 0.8, 0, 1, true);       //mapping dels valors del soroll a 0 i 1, valors mes grans que accepta el par
-        color = colorI*topFade;
+    color = colorI*topFade;
 
 }

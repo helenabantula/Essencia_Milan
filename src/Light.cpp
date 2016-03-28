@@ -20,7 +20,7 @@ void Light::initialize(int numUsersIni){
     //color = (255,0,65); // per tots igual
     
     
-    for (int i = 0; i<maxPar; i++){
+    for (int i = 0; i < maxPar; i++){
         Par temPar(color,0);
         leds.push_back(temPar);
     }
@@ -91,19 +91,19 @@ void Light::fadeUserPars(float k, char fade, int type, int step, int user){
     vector<int> usePars = parUserAssign[user];      //vector de pars de lusuari
     
     
-    for (int i = usePars[0]; i<usePars.size(); i++){
+    for (int i = 0; i < usePars.size(); i++){
         leds[i].topFade = k;
         
         if (fade=='I'){
-            leds[i].triggerFadeIn(type, step);
+            leds[usePars[i]].triggerFadeIn(type, step);
         }
         else if (fade == 'O') {
-            leds[i].triggerFadeOut(step);
+            leds[usePars[i]].triggerFadeOut(step);
         }
     }
     
 
-    fadeUnusedPars(1, 'O', 1, 2000, 0);
+    fadeUnusedPars(1, 'O', 1, 2000, user);
 }
 
 
@@ -131,14 +131,14 @@ void Light::fadeUnusedPars(float k, char fade, int type, int step, int users){
     }
 
     
-    for (int i = unusedPars[0]; i < unusedPars.size(); i++){
-        leds[i].topFade = k;
+    for (int i = 0; i < unusedPars.size(); i++){
+        leds[unusedPars[i]].topFade = k;
         
         if (fade == 'I'){
-            leds[i].triggerFadeIn(type, step);
+            leds[unusedPars[i]].triggerFadeIn(type, step);
         }
         else if (fade == 'O') {
-            leds[i].triggerFadeOut(step);
+            leds[unusedPars[i]].triggerFadeOut(step);
         }
     }
 
