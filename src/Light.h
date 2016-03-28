@@ -29,11 +29,14 @@ public:
     
     ofxArtnet artnet;
     vector<Par> leds;
-    unsigned char packDMX[15];
-    unsigned char old_packDMX[15];
+    vector<unsigned char> packDMX;
+    //unsigned char packDMX[48];
+    //unsigned char old_packDMX[15];
     
     uint8_t dmx[3];
-    int maxPar = 8;
+    int maxPar = 16;
+    int numUsers;
+    int parXuser;
     
     vector<vector<int>> parUserAssign;
   
@@ -42,7 +45,8 @@ public:
     void getInfo();
     void sendInfo();
     void equalFade(float k, char fade, int type, int step); //tots els pars
-    void fadeUserPars(float k, char fade, int type, int step, int user);    //nomes els pars de lusuari
+    void fadeUserPars(float k, char fade, int type, int step, int user);    // fade of the current user pars (only 1 user allowed)
+    void fadeUnusedPars(float k, char fade, int type, int step, int users); // fade of the non-used pars only by knowing the current users
     void randomPlay(bool state);
     
 
