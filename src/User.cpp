@@ -86,6 +86,7 @@ void User::play(){
     
     if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime)) {
         Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
+        Light::getInstance().closeUser(sensorID);
         timeSinceLeft = ofGetElapsedTimeMillis();
         userState = STATE_STOP;
         cout<<"HE PARAT!!!!"<<endl;
@@ -112,10 +113,12 @@ void User::setHeartBeat(char value){
 
     
     if(((userState == STATE_INITIAL) && (value == 'H') && (ofGetElapsedTimeMillis() - timeSinceH) < maxPeriod)){    // asseguro H no falses
+        Light::getInstance().openUser(sensorID);
         timeSinceUser = ofGetElapsedTimeMillis();
         Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID);
         userState = STATE_WARMING;
         cout<<"HE ENTRAT"<<endl;
+        
 
     }
     

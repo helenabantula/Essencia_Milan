@@ -34,9 +34,11 @@ public:
     //unsigned char old_packDMX[15];
     
     uint8_t dmx[3];
-    int maxPar = 16;
+    int maxPar = 4;
     int numUsers;
     int parXuser;
+    vector<bool> currentUsers;
+    int numCurrentUsers = 0;
     
     vector<vector<int>> parUserAssign;
   
@@ -48,6 +50,9 @@ public:
     void fadeUserPars(float k, char fade, int type, int step, int user);    // fade of the current user pars (only 1 user allowed)
     void fadeUnusedPars(float k, char fade, int type, int step, int users); // fade of the non-used pars only by knowing the current users
     void randomPlay(bool state);
+    void openUser(int userID);
+    void closeUser(int userID);
+    void assignPars();
     
 
     
