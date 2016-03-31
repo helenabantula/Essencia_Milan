@@ -32,6 +32,7 @@ void User:: update(){
             warming();
             break;
         case STATE_PLAY:
+            if (isActive)
             play();
             break;
         case STATE_STOP:
@@ -99,6 +100,7 @@ void User::stop(){
     if ((ofGetElapsedTimeMillis()-timeSinceLeft) > stopTime) {
         periodMean = periodMeanInit;
         period.clear();
+        isActive = true;
         userState = STATE_INITIAL;
     }
 }
@@ -114,8 +116,9 @@ void User::setHeartBeat(char value){
     
     if(((userState == STATE_INITIAL) && (value == 'H') && (ofGetElapsedTimeMillis() - timeSinceH) < maxPeriod)){    // asseguro H no falses
         Light::getInstance().openUser(sensorID);
+        Light::getInstance().equalFade(1, 'O', 1, warmingTime);
         timeSinceUser = ofGetElapsedTimeMillis();
-        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID);
+        //Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID);
         userState = STATE_WARMING;
         cout<<"HE ENTRAT"<<endl;
         
@@ -173,6 +176,15 @@ void User::setHeartBeat(char value){
         // phase computation (always?)
         phaseMean = 0.25*periodMean;
     }
+    
+}
+
+void User::changeActivity(){
+    
+    if (isActive)
+        isActive = false;
+    else
+        isActive = true;
 }
 
 

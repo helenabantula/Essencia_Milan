@@ -64,6 +64,9 @@ public:
     void update();
     userStateType userState;
     
+    //CONTROL ACTiVE/INACTIVE
+    bool isActive = true;
+    
     
     
     //INHERENT
@@ -77,6 +80,12 @@ public:
     void stop();
     void wait();
     void setHeartBeat(char value);
+    
+    void changeActivity();
+    
+    void setActive(bool activity){ isActive = activity;};
+    
+    
 
 
 };

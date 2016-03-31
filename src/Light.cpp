@@ -26,10 +26,10 @@ void Light::initialize(int numUsersIni){
     }
     
     numUsers = numUsersIni;
-    //parXuser = maxPar/numUsers;
+    parXuser = maxPar/numUsers;
     
-    //vector<vector<int>> tempMatrix(numUsers, vector<int>(parXuser));
-    //parUserAssign = tempMatrix;
+    vector<vector<int>> tempMatrix(numUsers, vector<int>(parXuser));
+    parUserAssign = tempMatrix;
     
     vector<bool> tempCurrentUsers(numUsers);
     currentUsers = tempCurrentUsers;
@@ -39,12 +39,12 @@ void Light::initialize(int numUsersIni){
     
     sendInfo();
     
-//    for (int i = 0; i < numUsers; i++){
-//        for (int j = 0; j < (parXuser); j++){
-//            parUserAssign[i][j] = i*(parXuser) +j;
-//        }
-//        
-//    }
+    for (int i = 0; i < numUsers; i++){
+        for (int j = 0; j < (parXuser); j++){
+            parUserAssign[i][j] = i*(parXuser) +j;
+        }
+        
+    }
 }
 
 
@@ -108,9 +108,9 @@ void Light::equalFade(float k, char fade, int type, int step){
 void Light::fadeUserPars(float k, char fade, int type, int step, int user){
     
     
-    if (numCurrentUsers == 1) {
-        user = 0;
-    }
+//    if (numCurrentUsers == 1) {
+//        user = 0;
+//    }
     
     vector<int> usePars = parUserAssign[user];      //vector de pars de lusuari, si parUserAssign és fixe!
     
@@ -187,7 +187,7 @@ void Light::openUser(int userID){
             numCurrentUsers ++;
     }
     
-    assignPars();
+    //assignPars();
 }
 
 void Light::closeUser(int userID){
@@ -199,8 +199,17 @@ void Light::closeUser(int userID){
             numCurrentUsers --;
     }
     
-    assignPars();
+    //assignPars();
     
+}
+
+
+bool Light::isUserOpened(int userID){
+    
+    if (currentUsers[userID])
+        return true;
+    else
+        return false;
 }
 
 

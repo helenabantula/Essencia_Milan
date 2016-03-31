@@ -31,7 +31,7 @@ void ofApp::setup(){
     users.push_back(temUser1);
     
     ////////////////////////// LIGHT ////////////////////////
-    Light::getInstance().initialize(numUsers); //maxUsers
+    Light::getInstance().initialize(numUsers); //numUsers
     
     
     ////////////////////////// SOUND ////////////////////////
@@ -69,24 +69,52 @@ void ofApp::update(){
             break;
     }
     
-    
-    int counter_state_initial = 0;
+    int no_users = 0;
     for (int i = 0; i < numUsers; i++){
         users[i].update();
-        if (users[i].userState == STATE_INITIAL) {
-            counter_state_initial ++;
+        if (!(Light::getInstance().isUserOpened(users[i].sensorID))) {
+            no_users ++;
         }
     }
     
-    if (counter_state_initial == numUsers)
-        Light::getInstance().randomPlay(true);
-    else
-        Light::getInstance().randomPlay(false);
+    
+    /////////////////// ASSIGNACIO DEL COMPORTAMENT SEGONS EL NOMBRE D'USUARIS ////////////////////////////
+                                                                                                        ///
+    if ((no_users == 0) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){                          ///
+                                                                                                        ///
+            users[0].changeActivity(); // canvia nomes un                                               ///
+            users[0].update();                                                                          ///
+                                                                                                        ///
+        if (users[0].isActive)                                                                          ///
+            users[1].setActive(false);                                                                  ///
+        else                                                                                            ///
+            users[1].setActive(true);                                                                   ///
+                                                                                                        ///
+        changeUser = ofGetElapsedTimeMillis();                                                          ///
+    }                                                                                                   ///
+                                                                                                        ///
+                                                                                                        ///
+                                                                                                        ///
+    if (no_users == 1) {                                                                                ///
+                                                                                                        ///
+        users[0].setActive(true);                                                                       ///
+        users[1].setActive(true);                                                                       ///
+    }                                                                                                   ///
+                                                                                                        ///
+                                                                                                        ///
+    if (no_users == numUsers)                                                                           ///
+        Light::getInstance().randomPlay(true);                                                          ///
+    else                                                                                                ///
+        Light::getInstance().randomPlay(false);                                                         ///
+                                                                                                        ///
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
         
     
     
     Light::getInstance().getInfo();
 }
+
+
 
 //--------------------------------------------------------------
 void ofApp::draw(){

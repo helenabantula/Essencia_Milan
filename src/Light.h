@@ -54,6 +54,8 @@ public:
     void closeUser(int userID);
     void assignPars();
     
+    bool isUserOpened(int userID);
+    
 
     
 
