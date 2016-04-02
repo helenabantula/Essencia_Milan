@@ -45,6 +45,8 @@ public:
     void randomMove();
     //void initialize(int time);
     ofColor getColor(){return color;};
+    
+    void setColor(int k){color = colorI*k;};
 
     
 };

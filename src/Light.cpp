@@ -13,7 +13,7 @@ void Light::initialize(int numUsersIni){
 #if TARGET_RASPBERRY_PI
     artnet.setup("192.168.1.110"); //IP de rPi
 #else
-    artnet.setup("192.168.1.110"); //IP ordinador
+    artnet.setup("192.168.1.102"); //IP ordinador
 #endif    
     //// Temporary Par ///
     ofColor  color(255,0,65);
@@ -179,14 +179,15 @@ void Light::randomPlay(bool state){
 void Light::openUser(int userID){
     
     currentUsers[userID] = true;
+    numCurrentUsers ++;
     //fadeUnusedPars(1, 'O', 1, 2000, userID);        //tots els usuaris que estiguin funcionant
     
-    numCurrentUsers = 0;
-    for (int i = 0; i < currentUsers.size(); i++){
-        if (currentUsers[i])
-            numCurrentUsers ++;
-    }
-    
+//    numCurrentUsers = 0;
+//    for (int i = 0; i < currentUsers.size(); i++){
+//        if (currentUsers[i])
+//            numCurrentUsers ++;
+//    }
+//    
     //assignPars();
 }
 
@@ -194,10 +195,13 @@ void Light::closeUser(int userID){
     
     currentUsers[userID] = false;
     
-    for (int i = 0; i < currentUsers.size(); i++){
-        if (currentUsers[i])
-            numCurrentUsers --;
-    }
+//    int auxCurrentUsers = 0;
+//    for (int i = 0; i < currentUsers.size(); i++){
+//        if (currentUsers[i])
+//            auxCurrentUsers ++;
+//    }
+    
+    numCurrentUsers --;
     
     //assignPars();
     
@@ -219,10 +223,41 @@ void Light::setParState(float k, int user){
     
     
     for (int i = 0; i < usePars.size(); i++){
-        leds[i].color = k;
+        leds[i].setColor(k);
 
     }
 
+
+}
+
+void Light::setUnusedPars(float k, int user){
+    
+    
+    vector<int> noUsers(numUsers - 1);                      // non-user indexs
+    vector<int> unusedPars(noUsers.size()*(parXuser));      // non-used pars
+    //vector<int> unusedPars;
+    int j = 0;
+    
+    for (int i = 0; i < numUsers; i++){
+        if (i != user) {
+            noUsers[j] = i;
+            j++;
+        }
+    }
+    
+    int z = 0;
+    for (int i = 0; i < noUsers.size(); i++) {
+        for (int j = 0; j < parXuser; j++){
+            unusedPars[z] = parUserAssign[noUsers[i]][j];
+            z ++;
+        }
+    }
+    
+    
+    for (int i = 0; i < unusedPars.size(); i++){
+        leds[unusedPars[i]].setColor(k);
+
+    }
 
 }
 

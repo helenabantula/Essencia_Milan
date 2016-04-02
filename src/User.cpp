@@ -43,8 +43,6 @@ void User:: update(){
             break;
     }
     
-    if (!isActive)
-        Light::getInstance().setParState(0,sensorID);
 
 }
 
@@ -74,6 +72,7 @@ void User::play(){
         // play light and sound
         soundUp.play();
         Light::getInstance().fadeUserPars(1, 'I', 2, 200, sensorID);       //fadeIn
+        Light::getInstance().setUnusedPars(0, sensorID);
         
         // start again
         timeSincePlay = ofGetElapsedTimeMillis();
@@ -83,6 +82,7 @@ void User::play(){
     if (((ofGetElapsedTimeMillis() - timeSincePlay) >= phaseMean) && playPhase){
         soundDown.play();
         Light::getInstance().fadeUserPars(1, 'O', 1, 200, sensorID);       //fadeOut
+        Light::getInstance().setUnusedPars(0, sensorID);
         playPhase = false;
     }
     
@@ -117,7 +117,10 @@ void User::setHeartBeat(char value){
     
     if(((userState == STATE_INITIAL) && (value == 'H') && (ofGetElapsedTimeMillis() - timeSinceH) < maxPeriod)){    // asseguro H no falses
         Light::getInstance().openUser(sensorID);
-        Light::getInstance().equalFade(1, 'O', 1, warmingTime);
+        
+        if (!isAnotherUser)
+            Light::getInstance().equalFade(1, 'O', 1, warmingTime);
+        
         timeSinceUser = ofGetElapsedTimeMillis();
         //Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID);
         userState = STATE_WARMING;
@@ -182,10 +185,11 @@ void User::setHeartBeat(char value){
 
 void User::changeActivity(){
     
-    if (isActive)
-        isActive = false;
-    else
-        isActive = true;
+    isActive = !isActive;
+//    if (isActive)
+//        isActive = false;
+//    else
+//        isActive = true;
 }
 
 

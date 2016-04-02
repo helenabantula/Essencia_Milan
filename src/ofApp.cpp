@@ -69,21 +69,36 @@ void ofApp::update(){
             break;
     }
     
-    int no_users = 0;
-    for (int i = 0; i < numUsers; i++){
+    
+    
+    vector<bool> currentUsers;
+    currentUsers = Light::getInstance().currentUsers;
+    int numOpenedUsers = Light::getInstance().numCurrentUsers;
+            //users[i].update();
+    
+    for (int i = 0; i < currentUsers.size(); i++){
         users[i].update();
-        if (!(Light::getInstance().isUserOpened(users[i].sensorID))) {
-            no_users ++;
+
+        if(!currentUsers[i] && (numOpenedUsers != 0)){
+            users[i].setAnotherUser(true);
+            users[i].update();
         }
     }
-    
+
+
     
     /////////////////// ASSIGNACIO DEL COMPORTAMENT SEGONS EL NOMBRE D'USUARIS ////////////////////////////
                                                                                                         ///
-    if ((no_users == 0) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){                          ///
-                                                                                                        ///
-            users[0].changeActivity(); // canvia nomes un                                               ///
-            users[0].update();                                                                          ///
+    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){                    ///
+        
+        if (users[0].getTimeSinceUser() < users[1].getTimeSinceUser())
+            users[0].setTimeSinceUser(users[1].getTimeSinceUser());
+        else
+            users[1].setTimeSinceUser(users[0].getTimeSinceUser());
+        
+    
+        users[0].changeActivity(); // canvia nomes un                                                   ///
+        users[0].update();                                                                              ///
                                                                                                         ///
         if (users[0].isActive)                                                                          ///
             users[1].setActive(false);                                                                  ///
@@ -97,20 +112,30 @@ void ofApp::update(){
                                                                                                         ///
                                                                                                         ///
                                                                                                         ///
-    if (no_users == 1) {                                                                                ///
+    if (numOpenedUsers == 1) {
+        
+        for (int i = 0; i < numUsers; i++){
+            users[i].setActive(true);
+            users[0].setAnotherUser(false);
+        
+        }
                                                                                                         ///
-        users[0].setActive(true);                                                                       ///
-        users[1].setActive(true);                                                                       ///
     }                                                                                                   ///
                                                                                                         ///
                                                                                                         ///
-    if (no_users == numUsers){                                                                          ///
+    if (numOpenedUsers == 0){                                                                          ///
         Light::getInstance().randomPlay(true);
         background.setVolume(0.8);
+            
+        for (int i = 0; i < numUsers; i++){
+            users[i].setActive(true);
+            users[0].setAnotherUser(false);
+                
+        }
     }                                                                                                   ///
     else {                                                                                                ///
         Light::getInstance().randomPlay(false);
-        background.setVolume(0.2);
+        background.setVolume(0.1);
     }                                                                                                   ///
                                                                                                         ///
     ///////////////////////////////////////////////////////////////////////////////////////////////////////

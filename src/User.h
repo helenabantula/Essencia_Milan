@@ -66,6 +66,7 @@ public:
     
     //CONTROL ACTiVE/INACTIVE
     bool isActive = true;
+    bool isAnotherUser = false;
     
     
     
@@ -84,6 +85,10 @@ public:
     void changeActivity();
     
     void setActive(bool activity){ isActive = activity;};
+    void setAnotherUser(bool isAnother){ isAnotherUser = isAnother;};
+    
+    int getTimeSinceUser(){return timeSinceUser;};
+    void setTimeSinceUser(int time){timeSinceUser = time;};
     
     
 
