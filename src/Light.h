@@ -53,6 +53,7 @@ public:
     void openUser(int userID);
     void closeUser(int userID);
     void assignPars();
+    void setParState(float k, int users);
     
     bool isUserOpened(int userID);
     

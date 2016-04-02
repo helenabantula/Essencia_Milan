@@ -91,7 +91,9 @@ void ofApp::update(){
             users[1].setActive(true);                                                                   ///
                                                                                                         ///
         changeUser = ofGetElapsedTimeMillis();                                                          ///
-    }                                                                                                   ///
+    }
+    
+    // LA INTERACCIO DELS DOS HA D'ACABAR AL MATEIX MOMENT                                              ///
                                                                                                         ///
                                                                                                         ///
                                                                                                         ///
@@ -102,10 +104,14 @@ void ofApp::update(){
     }                                                                                                   ///
                                                                                                         ///
                                                                                                         ///
-    if (no_users == numUsers)                                                                           ///
-        Light::getInstance().randomPlay(true);                                                          ///
-    else                                                                                                ///
-        Light::getInstance().randomPlay(false);                                                         ///
+    if (no_users == numUsers){                                                                          ///
+        Light::getInstance().randomPlay(true);
+        background.setVolume(0.8);
+    }                                                                                                   ///
+    else {                                                                                                ///
+        Light::getInstance().randomPlay(false);
+        background.setVolume(0.2);
+    }                                                                                                   ///
                                                                                                         ///
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
         

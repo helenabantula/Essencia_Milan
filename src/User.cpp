@@ -42,8 +42,9 @@ void User:: update(){
             wait();
             break;
     }
-
-
+    
+    if (!isActive)
+        Light::getInstance().setParState(0,sensorID);
 
 }
 

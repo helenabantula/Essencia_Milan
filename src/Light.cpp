@@ -11,9 +11,9 @@
 
 void Light::initialize(int numUsersIni){
 #if TARGET_RASPBERRY_PI
-    artnet.setup("192.168.1.103"); //IP de l'ordinador
+    artnet.setup("192.168.1.110"); //IP de rPi
 #else
-    artnet.setup("192.168.1.113");
+    artnet.setup("192.168.1.110"); //IP ordinador
 #endif    
     //// Temporary Par ///
     ofColor  color(255,0,65);
@@ -21,7 +21,7 @@ void Light::initialize(int numUsersIni){
     
     
     for (int i = 0; i < maxPar; i++){
-        Par temPar(color,0);
+        Par temPar(color,i);
         leds.push_back(temPar);
     }
     
@@ -212,5 +212,18 @@ bool Light::isUserOpened(int userID){
         return false;
 }
 
+
+void Light::setParState(float k, int user){
+    
+    vector<int> usePars = parUserAssign[user];      //vector de pars de lusuari, si parUserAssign és fixe!
+    
+    
+    for (int i = 0; i < usePars.size(); i++){
+        leds[i].color = k;
+
+    }
+
+
+}
 
 
