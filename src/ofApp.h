@@ -21,6 +21,10 @@ public:
         int changeUser;
     
     
+        // Current users computation
+        bool currentUsers[2];
+    
+    
 		void setup();
 		void update();
 		void draw();

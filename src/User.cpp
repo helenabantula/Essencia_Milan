@@ -22,7 +22,7 @@ User:: User(string soundfile1, string soundfile2, int position){
 
 
 // Decidir quin estat s'executa
-void User:: update(){
+void User::update(){
     
     switch(userState){
         case STATE_INITIAL:
@@ -48,7 +48,7 @@ void User:: update(){
 
 void User::initial(){
     //Light::getInstance().randomPlay(true);
-
+    // posar-se ACTIU
     
 }
 
@@ -88,7 +88,7 @@ void User::play(){
     
     if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime)) {
         Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
-        Light::getInstance().closeUser(sensorID);
+        //Light::getInstance().closeUser(sensorID);
         timeSinceLeft = ofGetElapsedTimeMillis();
         userState = STATE_STOP;
         cout<<"HE PARAT!!!!"<<endl;
@@ -116,7 +116,7 @@ void User::setHeartBeat(char value){
 
     
     if(((userState == STATE_INITIAL) && (value == 'H') && (ofGetElapsedTimeMillis() - timeSinceH) < maxPeriod)){    // asseguro H no falses
-        Light::getInstance().openUser(sensorID);
+        //Light::getInstance().openUser(sensorID);
         
         if (!isAnotherUser)
             Light::getInstance().equalFade(1, 'O', 1, warmingTime);
@@ -129,29 +129,6 @@ void User::setHeartBeat(char value){
 
     }
     
-    
-//    if (userState == STATE_PLAY && value == 'H'){
-//        cout<<"HIGH"<<endl;
-//        sound.play();
-//        Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
-//    }
-    
-//    else if (userState == STATE_PLAY && value == 'L'){
-//        cout<<"LOW"<<endl;
-//        //sound.play();
-//        //Light::getInstance().fadeUserPars(1, 'I', 1, 500, sensorID);       //fadeIn + fadeOut
-//    
-//    }
-    
-//    if (userState == STATE_STOP){
-//        //Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
-//        //timeSinceLeft = ofGetElapsedTimeMillis();
-//        cout<<"HE PARAT!!!!"<<endl;
-//    }
-    
-        
-    
-    //frequency computation (always?)
     if (value == 'H'){
         
         // period
@@ -186,10 +163,7 @@ void User::setHeartBeat(char value){
 void User::changeActivity(){
     
     isActive = !isActive;
-//    if (isActive)
-//        isActive = false;
-//    else
-//        isActive = true;
+
 }
 
 

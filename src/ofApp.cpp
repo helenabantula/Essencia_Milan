@@ -71,12 +71,25 @@ void ofApp::update(){
     
     
     
-    vector<bool> currentUsers;
-    currentUsers = Light::getInstance().currentUsers;
-    int numOpenedUsers = Light::getInstance().numCurrentUsers;
-            //users[i].update();
     
-    for (int i = 0; i < currentUsers.size(); i++){
+    //////////////////////////////////// CURRENT USERS COMPUTATION ///////////////////////////////////////
+    
+    
+    int numOpenedUsers = 0;
+    
+    for (int i = 0; i < numUsers; i++){
+        if (users[i].userState != STATE_INITIAL) {
+            currentUsers[i] = true;
+            numOpenedUsers ++;
+        }
+        else
+            currentUsers[i] = false;
+    }
+    
+    
+    
+
+    for (int i = 0; i < numUsers; i++){
         users[i].update();
 
         if(!currentUsers[i] && (numOpenedUsers != 0)){
@@ -89,14 +102,14 @@ void ofApp::update(){
     
     /////////////////// ASSIGNACIO DEL COMPORTAMENT SEGONS EL NOMBRE D'USUARIS ////////////////////////////
                                                                                                         ///
-    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){                    ///
-        
-        if (users[0].getTimeSinceUser() < users[1].getTimeSinceUser())
-            users[0].setTimeSinceUser(users[1].getTimeSinceUser());
-        else
-            users[1].setTimeSinceUser(users[0].getTimeSinceUser());
-        
-    
+    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){             ///
+                                                                                                        ///
+        if (users[0].getTimeSinceUser() < users[1].getTimeSinceUser())                                  ///
+            users[0].setTimeSinceUser(users[1].getTimeSinceUser());                                     ///
+        else                                                                                            ///
+            users[1].setTimeSinceUser(users[0].getTimeSinceUser());                                     ///
+                                                                                                        ///
+                                                                                                        ///
         users[0].changeActivity(); // canvia nomes un                                                   ///
         users[0].update();                                                                              ///
                                                                                                         ///
@@ -106,36 +119,36 @@ void ofApp::update(){
             users[1].setActive(true);                                                                   ///
                                                                                                         ///
         changeUser = ofGetElapsedTimeMillis();                                                          ///
-    }
-    
+    }                                                                                                   ///
+                                                                                                        ///
     // LA INTERACCIO DELS DOS HA D'ACABAR AL MATEIX MOMENT                                              ///
                                                                                                         ///
                                                                                                         ///
                                                                                                         ///
-    if (numOpenedUsers == 1) {
-        
-        for (int i = 0; i < numUsers; i++){
-            users[i].setActive(true);
-            users[0].setAnotherUser(false);
-        
-        }
+    if (numOpenedUsers == 1) {                                                                          ///
+                                                                                                        ///
+        for (int i = 0; i < numUsers; i++){                                                             ///
+            users[i].setActive(true);                                                                   ///
+            users[0].setAnotherUser(false);                                                             ///
+                                                                                                        ///
+        }                                                                                               ///
                                                                                                         ///
     }                                                                                                   ///
                                                                                                         ///
                                                                                                         ///
-    if (numOpenedUsers == 0){                                                                          ///
-        Light::getInstance().randomPlay(true);
-        background.setVolume(0.8);
-            
-        for (int i = 0; i < numUsers; i++){
-            users[i].setActive(true);
-            users[0].setAnotherUser(false);
-                
-        }
+    if (numOpenedUsers == 0){                                                                           ///
+        Light::getInstance().randomPlay(true);                                                          ///
+        background.setVolume(0.8);                                                                      ///
+                                                                                                        ///
+        for (int i = 0; i < numUsers; i++){                                                             ///
+            users[i].setActive(true);                                                                   ///
+            users[0].setAnotherUser(false);                                                             ///
+                                                                                                        ///
+        }                                                                                               ///
     }                                                                                                   ///
-    else {                                                                                                ///
-        Light::getInstance().randomPlay(false);
-        background.setVolume(0.1);
+    else {                                                                                              ///
+        Light::getInstance().randomPlay(false);                                                         ///
+        background.setVolume(0.1);                                                                      ///
     }                                                                                                   ///
                                                                                                         ///
     ///////////////////////////////////////////////////////////////////////////////////////////////////////

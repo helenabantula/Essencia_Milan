@@ -11,7 +11,7 @@
 
 void Light::initialize(int numUsersIni){
 #if TARGET_RASPBERRY_PI
-    artnet.setup("192.168.1.110"); //IP de rPi
+    artnet.setup("192.168.1.109"); //IP de rPi
 #else
     artnet.setup("192.168.1.102"); //IP ordinador
 #endif    
@@ -107,11 +107,6 @@ void Light::equalFade(float k, char fade, int type, int step){
 
 void Light::fadeUserPars(float k, char fade, int type, int step, int user){
     
-    
-//    if (numCurrentUsers == 1) {
-//        user = 0;
-//    }
-    
     vector<int> usePars = parUserAssign[user];      //vector de pars de lusuari, si parUserAssign és fixe!
     
     
@@ -134,7 +129,7 @@ void Light::fadeUnusedPars(float k, char fade, int type, int step, int users){
     
     vector<int> noUsers(numUsers - 1);                      // non-user indexs
     vector<int> unusedPars(noUsers.size()*(parXuser));      // non-used pars
-    //vector<int> unusedPars;
+    
     int j = 0;
     
     for (int i = 0; i < numUsers; i++){
