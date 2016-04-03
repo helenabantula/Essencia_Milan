@@ -55,10 +55,16 @@ void User::initial(){
 
 void User::warming(){
     
-    // si han passat dos segons i dins d'aquests reps una H, canvia estat
-    if (((ofGetElapsedTimeMillis() - timeSinceUser) > warmingTime) && (ofGetElapsedTimeMillis() - timeSinceH < warmingTime)){
-        userState = STATE_PLAY;
-        timeSincePlay = ofGetElapsedTimeMillis();
+    // si han passat dos segons
+    if ((ofGetElapsedTimeMillis() - timeSinceUser) > warmingTime) {
+        
+        if (ofGetElapsedTimeMillis() - timeSinceH < warmingTime) {       //i dins d'aquests 2 segons reps una H, canvia estat
+            userState = STATE_PLAY;
+            timeSincePlay = ofGetElapsedTimeMillis();
+        }
+        
+        else                                                            // si no reps una H, torna a inici
+        userState = STATE_INITIAL;
     }
 
 }
