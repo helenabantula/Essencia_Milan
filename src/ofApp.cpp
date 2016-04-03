@@ -78,7 +78,7 @@ void ofApp::update(){
     int numOpenedUsers = 0;
     
     for (int i = 0; i < numUsers; i++){
-        if (users[i].userState != STATE_INITIAL) {
+        if (users[i].userState == STATE_PLAY) {
             currentUsers[i] = true;
             numOpenedUsers ++;
         }
