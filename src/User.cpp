@@ -63,8 +63,11 @@ void User::warming(){
             timeSincePlay = ofGetElapsedTimeMillis();
         }
         
-        else                                                            // si no reps una H, torna a inici
-        userState = STATE_INITIAL;
+        else  {                                                          // si no reps una H, torna a inici
+            periodMean = periodMeanInit;
+            period.clear();
+            userState = STATE_INITIAL;
+        }
     }
 
 }
