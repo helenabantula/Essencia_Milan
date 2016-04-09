@@ -32,7 +32,7 @@ void User::update(){
             warming();
             break;
         case STATE_PLAY:
-            if (isActive)
+            if (isActive || isTransition)
             play();
             break;
         case STATE_STOP:

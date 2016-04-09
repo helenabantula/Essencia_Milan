@@ -104,21 +104,47 @@ void ofApp::update(){
     
     /////////////////// ASSIGNACIO DEL COMPORTAMENT SEGONS EL NOMBRE D'USUARIS ////////////////////////////
                                                                                                         ///
+    
+    
+    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > (timeXuser-2000)){      ///
+        ///
+        users[0].setTransition(true);
+        users[1].setTransition(true);
+    }
+    
+    
     if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > timeXuser){             ///
                                                                                                         ///
-        if (users[0].getTimeSinceUser() < users[1].getTimeSinceUser())                                  ///
-            users[0].setTimeSinceUser(users[1].getTimeSinceUser());                                     ///
-        else                                                                                            ///
-            users[1].setTimeSinceUser(users[0].getTimeSinceUser());                                     ///
+        users[0].setTransition(false);
+        users[1].setTransition(false);
+        
+        
+        if (firstTime2) {
+        // just do once!!!
+            if (users[0].getTimeSinceUser() < users[1].getTimeSinceUser()) {     // Zero first
+                users[0].setTimeSinceUser(users[1].getTimeSinceUser());
+                users[0].setActive(false); // ho giren
+                users[1].setActive(true);  // ho giren
+                
+            }///
+            else    {                                                                                   ///
+                users[1].setTimeSinceUser(users[0].getTimeSinceUser());
+                users[1].setActive(false); // ho giren
+                users[0].setActive(true);  // ho giren                                                  ///
                                                                                                         ///
+            }
+            firstTime2 = false;
+            
+        }
                                                                                                         ///
-        users[0].changeActivity(); // canvia nomes un                                                   ///
-        users[0].update();                                                                              ///
-                                                                                                        ///
-        if (users[0].isActive)                                                                          ///
-            users[1].setActive(false);                                                                  ///
-        else                                                                                            ///
-            users[1].setActive(true);                                                                   ///
+        users[0].changeActivity(); // canvia nomes un
+        users[1].changeActivity();                                                                      ///
+//        users[0].update();                                                                            ///
+//                                                                                                      ///
+//        if (users[0].isActive)                                                                        ///
+//            users[1].setActive(false);                                                                ///
+//        else                                                                                          ///
+//            users[1].setActive(true);                                                                 ///
                                                                                                         ///
         changeUser = ofGetElapsedTimeMillis();                                                          ///
     }                                                                                                   ///
@@ -131,7 +157,8 @@ void ofApp::update(){
                                                                                                         ///
         for (int i = 0; i < numUsers; i++){                                                             ///
             users[i].setActive(true);                                                                   ///
-            users[0].setAnotherUser(false);                                                             ///
+            users[0].setAnotherUser(false);
+            firstTime2 = true;///
                                                                                                         ///
         }                                                                                               ///
                                                                                                         ///
@@ -140,11 +167,13 @@ void ofApp::update(){
                                                                                                         ///
     if (numOpenedUsers == 0){                                                                           ///
         Light::getInstance().randomPlay(true);                                                          ///
-        background.setVolume(0.8);                                                                      ///
+        background.setVolume(0.8);
+        firstTime2 = true;  ///
                                                                                                         ///
         for (int i = 0; i < numUsers; i++){                                                             ///
             users[i].setActive(true);                                                                   ///
-            users[0].setAnotherUser(false);                                                             ///
+            users[0].setAnotherUser(false);
+                                                                        ///
                                                                                                         ///
         }                                                                                               ///
     }                                                                                                   ///

@@ -23,6 +23,7 @@ public:
     
         // Current users computation
         bool currentUsers[2];
+        bool firstTime2 = true;
     
     
 		void setup();
