@@ -3,13 +3,15 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetFrameRate(60);
+    //ofSetFrameRate(60);
     
     ////////////////////////// SERIAL ////////////////////////
     ofSetVerticalSync(true);
     int baud = 115200;
 
     serial.listDevices();
+    
+    ofSetFrameRate(48);
     
     vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList();
 #if TARGET_RASPBERRY_PI
@@ -78,7 +80,7 @@ void ofApp::update(){
     int numOpenedUsers = 0;
     
     for (int i = 0; i < numUsers; i++){
-        if (users[i].userState == STATE_PLAY) {
+        if (users[i].getUserState()!= STATE_INITIAL && users[i].getUserState()!= STATE_STOP) {
             currentUsers[i] = true;
             numOpenedUsers ++;
         }

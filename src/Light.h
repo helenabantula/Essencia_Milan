@@ -33,6 +33,10 @@ public:
     //unsigned char packDMX[48];
     //unsigned char old_packDMX[15];
     
+    vector<ofColor> colors;
+    
+    
+    
     uint8_t dmx[3];
     int maxPar = 4;
     int numUsers;
@@ -57,6 +61,8 @@ public:
     void setUnusedPars(float k, int users);
     
     bool isUserOpened(int userID);
+    
+    
     
 
     

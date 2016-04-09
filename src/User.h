@@ -41,7 +41,7 @@ public:
     int timeSinceLeft;
     int timeSincePlay;
     int playTime = 40000;
-    int warmingTime = 2000;
+    int warmingTime = 2000; //canviat
     int stopTime = 3000;
     int maxErrorTime = 4000;
     
@@ -88,6 +88,7 @@ public:
     void setAnotherUser(bool isAnother){ isAnotherUser = isAnother;};
     
     int getTimeSinceUser(){return timeSinceUser;};
+    userStateType getUserState(){return userState;};
     void setTimeSinceUser(int time){timeSinceUser = time;};
     
     

@@ -17,7 +17,7 @@ public:
         int maxPars; //maxim nombre de pars per usuari, hauria de ser accessible per tothom!
         ofSoundPlayer background;
     
-        int timeXuser = 3000;
+        int timeXuser = 5000;
         int changeUser;
     
     

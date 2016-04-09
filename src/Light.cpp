@@ -15,13 +15,27 @@ void Light::initialize(int numUsersIni){
 #else
     artnet.setup("192.168.1.102"); //IP ordinador
 #endif    
-    //// Temporary Par ///
-    ofColor  color(255,0,65);
-    //color = (255,0,65); // per tots igual
+ 
+    ofColor  color(255,100,70);
+    colors.push_back(color);
     
+    color.set(255, 100, 70);
+    colors.push_back(color);
+    
+    color.set(255,100,150);
+    colors.push_back(color);
+    
+    color.set(255,100,150);
+    colors.push_back(color);
+
+    
+    //colors[0] = color;
+    //colors[1] = (255,0,65);
+    //colors[2] = (0,0,255);
+    //colors[3] = (0,0,255);
     
     for (int i = 0; i < maxPar; i++){
-        Par temPar(color,i);
+        Par temPar(colors[i],i);
         leds.push_back(temPar);
     }
     
