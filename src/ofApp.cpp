@@ -29,7 +29,8 @@ void ofApp::setup(){
     
     User temUser("GreuEssencia_C.wav","GreuEssencia_D.wav",0);
     users.push_back(temUser);
-    User temUser1("GreuEssencia2_C.wav","GreuEssencia2_D.wav",1);
+    //User temUser1("GreuEssencia2_C.wav","GreuEssencia2_D.wav",1);
+    User temUser1("GreuEssencia_C.wav","GreuEssencia_D.wav",1);
     users.push_back(temUser1);
     
     ////////////////////////// LIGHT ////////////////////////
@@ -78,11 +79,15 @@ void ofApp::update(){
     
     
     int numOpenedUsers = 0;
+    int numSIusers = 0;
     
     for (int i = 0; i < numUsers; i++){
-        if (users[i].getUserState()!= STATE_INITIAL && users[i].getUserState()!= STATE_STOP) {
-            currentUsers[i] = true;
-            numOpenedUsers ++;
+        if (users[i].getUserState()!= STATE_INITIAL) {
+            numSIusers ++;
+            if (users[i].getUserState()!= STATE_STOP) {
+                currentUsers[i] = true;
+                numOpenedUsers ++;
+            }
         }
         else
             currentUsers[i] = false;
@@ -110,6 +115,7 @@ void ofApp::update(){
         ///
         users[0].setTransition(true);
         users[1].setTransition(true);
+        //timeXuser = 5000;
     }
     
     
@@ -117,6 +123,7 @@ void ofApp::update(){
                                                                                                         ///
         users[0].setTransition(false);
         users[1].setTransition(false);
+        //timeXuser = 5000;
         
         
         if (firstTime2) {
@@ -133,6 +140,7 @@ void ofApp::update(){
                 users[0].setActive(true);  // ho giren                                                  ///
                                                                                                         ///
             }
+            //timeXuser = 2500;
             firstTime2 = false;
             
         }
@@ -159,21 +167,23 @@ void ofApp::update(){
             users[i].setActive(true);                                                                   ///
             users[0].setAnotherUser(false);
             firstTime2 = true;///
-                                                                                                        ///
         }                                                                                               ///
                                                                                                         ///
     }                                                                                                   ///
                                                                                                         ///
                                                                                                         ///
-    if (numOpenedUsers == 0){                                                                           ///
-        Light::getInstance().randomPlay(true);                                                          ///
-        background.setVolume(0.8);
-        firstTime2 = true;  ///
+    if (numOpenedUsers == 0){
+        
+        if (numSIusers == 0) {///
+            Light::getInstance().randomPlay(true);                                                      ///
+            background.setVolume(0.8);
+        }
+
+        firstTime2 = true;                                                                              ///
                                                                                                         ///
         for (int i = 0; i < numUsers; i++){                                                             ///
             users[i].setActive(true);                                                                   ///
-            users[0].setAnotherUser(false);
-                                                                        ///
+            users[i].setAnotherUser(false);
                                                                                                         ///
         }                                                                                               ///
     }                                                                                                   ///

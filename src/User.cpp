@@ -96,7 +96,16 @@ void User::play(){
     }
     
     if (((ofGetElapsedTimeMillis()-timeSinceUser) > playTime) || (ofGetElapsedTimeMillis() - timeSinceH > maxErrorTime)) {
-        Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
+        //Light::getInstance().fadeUserPars(1, 'O', 1, warmingTime, sensorID); //dos segons de fadeOut
+        Light::getInstance().setParState(0, sensorID);
+
+        if(isAnotherUser){
+            Light::getInstance().fadeUserPars(0.6, 'I', 0, stopTime, sensorID); //dos segons de fadeOut
+        }
+        else {
+            Light::getInstance().equalFade(0.6, 'I', 0, stopTime);
+        
+        }
         //Light::getInstance().closeUser(sensorID);
         timeSinceLeft = ofGetElapsedTimeMillis();
         userState = STATE_STOP;

@@ -42,7 +42,7 @@ public:
     int timeSincePlay;
     int playTime = 40000;
     int warmingTime = 2000; //canviat
-    int stopTime = 3000;
+    int stopTime = 4000;
     int maxErrorTime = 4000;
     
     //PERIOD COMPUTATION

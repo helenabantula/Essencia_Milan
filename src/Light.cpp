@@ -16,16 +16,16 @@ void Light::initialize(int numUsersIni){
     artnet.setup("192.168.1.102"); //IP ordinador
 #endif    
  
-    ofColor  color(255,100,70);
+    ofColor  color(180,60,70);
     colors.push_back(color);
     
-    color.set(255, 100, 70);
+    color.set(180, 60, 70);
     colors.push_back(color);
     
-    color.set(255,100,150);
+    color.set(255,20,50);
     colors.push_back(color);
     
-    color.set(255,100,150);
+    color.set(255,20,50);
     colors.push_back(color);
 
     
