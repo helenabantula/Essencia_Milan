@@ -18,6 +18,7 @@ public:
         ofSoundPlayer background;
     
         int timeXuser = 5000;
+        int timeTransition = 1000;
         int changeUser;
     
     

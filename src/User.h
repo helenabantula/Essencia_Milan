@@ -40,9 +40,11 @@ public:
     int timeSinceUser;
     int timeSinceLeft;
     int timeSincePlay;
+    int timeSinceStop;
     int playTime = 40000;
     int warmingTime = 2000; //canviat
     int stopTime = 4000;
+    int waitTime = 2000;
     int maxErrorTime = 4000;
     
     //PERIOD COMPUTATION

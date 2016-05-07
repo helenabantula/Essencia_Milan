@@ -100,7 +100,7 @@ void User::play(){
         Light::getInstance().setParState(0, sensorID);
 
         if(isAnotherUser){
-            Light::getInstance().fadeUserPars(0.6, 'I', 0, stopTime, sensorID); //dos segons de fadeOut
+            //Light::getInstance().fadeUserPars(0.6, 'O', 0, stopTime, sensorID); //dos segons de fadeOut
         }
         else {
             Light::getInstance().equalFade(0.6, 'I', 0, stopTime);
@@ -120,13 +120,19 @@ void User::stop(){
         periodMean = periodMeanInit;
         period.clear();
         isActive = true;
-        userState = STATE_INITIAL;
+        userState = STATE_WAIT;
+        timeSinceStop = ofGetElapsedTimeMillis();
+
     }
 }
 
 
 void User::wait(){
+    
+    if ((ofGetElapsedTimeMillis()-timeSinceStop) > waitTime) {
+        userState = STATE_INITIAL;
         cout<<"FUNCIONO_OFF"<<endl;
+    }
 }
 
 

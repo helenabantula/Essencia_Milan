@@ -16,16 +16,16 @@ void Light::initialize(int numUsersIni){
     artnet.setup("192.168.1.102"); //IP ordinador
 #endif    
  
-    ofColor  color(180,60,70);
+    ofColor  color(200,60,100);
     colors.push_back(color);
     
-    color.set(180, 60, 70);
+    color.set(200, 60, 100);
     colors.push_back(color);
     
-    color.set(255,20,50);
+    color.set(150,30,10);
     colors.push_back(color);
     
-    color.set(255,20,50);
+    color.set(150,30,10);
     colors.push_back(color);
 
     
@@ -100,7 +100,7 @@ void Light::getInfo(){
 
 void Light::sendInfo(){
     
-    artnet.sendDmx("192.168.1.150",&packDMX[0], packDMX.size());
+    artnet.sendDmx("192.168.1.151",&packDMX[0], packDMX.size());
 }
 
 

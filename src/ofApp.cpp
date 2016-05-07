@@ -111,11 +111,11 @@ void ofApp::update(){
                                                                                                         ///
     
     
-    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > (timeXuser-2000)){      ///
+    if ((numOpenedUsers == numUsers) && (ofGetElapsedTimeMillis()-changeUser) > (timeXuser-timeTransition)){      ///
         ///
         users[0].setTransition(true);
         users[1].setTransition(true);
-        //timeXuser = 5000;
+        timeXuser = 5000;
     }
     
     
@@ -140,7 +140,7 @@ void ofApp::update(){
                 users[0].setActive(true);  // ho giren                                                  ///
                                                                                                         ///
             }
-            //timeXuser = 2500;
+            timeXuser = 2500;
             firstTime2 = false;
             
         }
